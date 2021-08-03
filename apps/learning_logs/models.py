@@ -33,7 +33,10 @@ class Entry(models.Model):
 
     def __str__(self):
         """Повернути представлення моделі у string."""
-        return f"{self.text[:50]}..."
+        if len(f"{self.text}") > 50:
+            return f"{self.text[:50]}..."
+        else:
+            return self.text
 
     class Meta:
         verbose_name = 'Entry'
